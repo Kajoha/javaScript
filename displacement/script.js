@@ -11,10 +11,10 @@ let directionXc = (Math.random() - 1.5) * 2;
 let directionYc = (Math.random() - 1.5) * 2;
 
 
-let xP = 75 + Math.random() * (400 - radius * 2);
-let yP = 75 + Math.random() * (400 - radius * 2);
-let directionXr = (Math.random() - 3) * 2;
-let directionYr = (Math.random() - 3) * 2;
+let xP = 75 + Math.random() * (400 - 75 * 2);
+let yP = 75 + Math.random() * (400 - 75 * 2);
+let directionXr = (Math.random() - 2) * 2;
+let directionYr = (Math.random() - 2) * 2;
 
 function displacement() {
 
