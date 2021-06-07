@@ -21,6 +21,19 @@ class Canvas {
         this.ctx.fillStyle = r.color;
         this.ctx.fill();
     }
+
+    displacement() {
+        if (this.directionX >= canvas.width || this.directionX <= 0) {
+            this.velocityX = -this.velocityX;
+        }
+
+        if (this.directionY >= canvas.width || this.directionY <= 0) {
+            this.velocityY = -this.velocityY;
+        }
+
+        this.positionX += this.directionX;
+        this.positionY += this.directionY;
+    }
 }
 
 class Circle {
@@ -38,12 +51,25 @@ class Rect {
     }
 }
 
+class Movement {
+    constructor(radius) {
+        this.direction = radius + Math.random() * (400 - radius * 2);
+        this.direction = radius + Math.random() * (400 - radius * 2);
+        this.velocityX = (Math.random() - 1.5) * 2;
+        this.velocityY = (Math.random() - 1.5) * 2;
+    }
+}
+
 const canvas = new Canvas();
 const circle = new Circle(30, 30, 'red', 20);
+const movementC = new Movement(20);
 canvas.drawCircle(circle);
+canvas.displacement(movementC);
 
 const rect = new Rect(100, 50, 30, 30, 'blue');
+const movementR = new Movement(30);
 canvas.drawRect(rect);
+canvas.displacement(movementR);
 
 
 /*
