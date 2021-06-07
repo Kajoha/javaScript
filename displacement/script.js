@@ -1,3 +1,52 @@
+class Canvas {
+    constructor(width = 400, height = 400) {
+        this.canvas = document.getElementById('canvas');
+        this.canvas.width = width;
+        this.canvas.height = height;
+        this.ctx = this.canvas.getContext('2d');
+    }
+
+    drawCircle(c) {
+        this.ctx.beginPath();
+        this.ctx.arc(c.position.x, c.position.y, c.radius, 0, Math.PI * 2);
+        this.ctx.closePath();
+        this.ctx.fillStyle = c.color;
+        this.ctx.fill();
+    }
+
+    drawRect(r) {
+        this.ctx.beginPath();
+        this.ctx.rect(r.position.x, r.position.y, r.position.width, r.position.height);
+        this.ctx.closePath();
+        this.ctx.fillStyle = r.color;
+        this.ctx.fill();
+    }
+}
+
+class Circle {
+    constructor(x, y, color, radius) {
+        this.color = color;
+        this.position = { x: x, y: y };
+        this.radius = radius;
+    }
+}
+
+class Rect {
+    constructor(x, y, w, h, color) {
+        this.color = color;
+        this.position = { x: x, y: y, width: w, height: h };
+    }
+}
+
+const canvas = new Canvas();
+const circle = new Circle(30, 30, 'red', 20);
+canvas.drawCircle(circle);
+
+const rect = new Rect(100, 50, 30, 30, 'blue');
+canvas.drawRect(rect);
+
+
+/*
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const size = 400;
@@ -71,3 +120,4 @@ function displacement() {
 }
 
 displacement();
+*/
